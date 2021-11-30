@@ -168,7 +168,6 @@ install() {
   pipe
   misc
   docker-compose build
-  docker network create nginx-proxy-network
   docker-compose up -d
 }
 
