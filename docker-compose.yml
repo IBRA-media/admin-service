@@ -11,5 +11,5 @@ services:
       - ./mypipe:/mypipe
       - ./output.txt:/app/output.txt
     environment:
-      - PASSWORD=heya
+      - PASSWORD=${PASSWORD}
     restart: always

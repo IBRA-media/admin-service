@@ -52,7 +52,7 @@ module.exports.gitCloneCmd = function(gitowner, repo) {
 
 module.exports.gitPullCmd = function(defRepo) {
     var obj = JSON.parse(fs.readFileSync(configfile));
-    const data = `cd /root${obj.repos[defRepo].repo} && git pull https://${obj.gituser}:${obj.accesstoke}@github.com/${obj.repos[defRepo].gitowner}/${obj.repos[defRepo].repo} ${obj.repos[defRepo].gitbranch}`
+    const data = `cd /root/${obj.repos[defRepo].repo} && git pull https://${obj.gituser}:${obj.accesstoke}@github.com/${obj.repos[defRepo].gitowner}/${obj.repos[defRepo].repo} ${obj.repos[defRepo].gitbranch}`
 
     const cmd = `echo "${data}" > /mypipe`
     return cmd
