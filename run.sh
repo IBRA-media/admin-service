@@ -188,7 +188,7 @@ help() {
 # Selector to run command
 # Run ./start COMMAND ( install, env-setup, --help)
 
-if [[ $1 == "install" || $1 == "env-setup" || $1 == "update" || $1 == "help" || $1 == "pipe"]];
+if [[ $1 == "install" || $1 == "env-setup" || $1 == "update" || $1 == "help" || $1 == "pipe" ]];
   then
     $1
   else
