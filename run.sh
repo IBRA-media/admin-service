@@ -152,7 +152,8 @@ update() {
 
 pipe() {
   mkfifo mypipe
-  { echo "#!/bin/bash"; echo "while true; do eval "$(cat $pwd/mypipe)" &> $pwd/output.txt; done"; } > $pwd/execpipe.sh
+  echo -e '#!/bin/bash\nwhile true; do eval "$(cat '$pwd'/mypipe)" &> '$pwd'/output.txt; done' > $pwd/execpipe.sh
+  chmod +x $pwd/execpipe.sh
   (crontab -l ; echo "@reboot $pwd/execpipe.sh")| crontab -
   $pwd/execpipe.sh &
 }
