@@ -158,10 +158,15 @@ pipe() {
   $pwd/execpipe.sh &
 }
 
+misc() {
+  cp ./app/config-example.json ./app/config.json
+}
+
 install() {
   docker-install
   env-setup #will create the .env file
   pipe
+  misc
   docker-compose build
   docker network create nginx-proxy-network
   docker-compose up -d
