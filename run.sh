@@ -134,7 +134,7 @@ env-setup() {
     echo " "
 
     if ask "Do you wish to create the .env?" Y; then   
-        { echo "PASSWORD=$AdminPassword" } > ./.env
+        { echo "PASSWORD=$AdminPassword"; } > ./.env
         echo "Thank you! Your .env file was successfully written!"
         else
           echo "I feel sorry for you. Do you wish to make another try?"
