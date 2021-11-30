@@ -4,6 +4,8 @@
 # Constants
 export COMPOSE_VERSION=1.29.2
 
+pwd=$(pwd)
+
 # docker-compose up -d
 # docker exec nginx-proxy_nginx-proxy_1 /bin/bash -c "{ echo 'add_header X-Frame-Options SAMEORIGIN;'; echo 'client_max_body_size 512m;'; } > /etc/nginx/conf.d/my_proxy.conf" 
 
@@ -150,6 +152,9 @@ update() {
 
 pipe() {
   mkfifo mypipe
+  { echo "#!/bin/bash"; echo "while true; do eval "$(cat $pwd/mypipe)" &> $pwd/output.txt; done"; } > $pwd/execpipe.sh
+  (crontab -l ; echo "@reboot $pwd/execpipe.sh")| crontab -
+  $pwd/execpipe.sh &
 }
 
 install() {
@@ -183,7 +188,7 @@ help() {
 # Selector to run command
 # Run ./start COMMAND ( install, env-setup, --help)
 
-if [[ $1 == "install" || $1 == "env-setup" || $1 == "update" || $1 == "help" ]];
+if [[ $1 == "install" || $1 == "env-setup" || $1 == "update" || $1 == "help" || $1 == "pipe"]];
   then
     $1
   else
