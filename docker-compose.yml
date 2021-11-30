@@ -9,6 +9,7 @@ services:
     volumes:
       - ./app/config.json:/app/config.json
       - ./mypipe:/mypipe
+      - ./output.txt:/app/output.txt
     environment:
       - PASSWORD=heya
     restart: always
