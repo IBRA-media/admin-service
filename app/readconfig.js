@@ -44,12 +44,16 @@ module.exports.getGitLogin = function() {
 
 module.exports.gitCloneCmd = function(gitowner, repo) {
     var obj = JSON.parse(fs.readFileSync(configfile));
-    const data = `git clone https://${obj.gituser}:${obj.accesstoke}@github.com/${gitowner}/${repo}`
-    return data
+    const data = `cd /root && git clone https://${obj.gituser}:${obj.accesstoke}@github.com/${gitowner}/${repo}`
+    const cmd = `echo "${data}" > /mypipe`
+    // echo "cd /root/admin-service && git pull" > /mypipe 
+    return cmd
 }
 
-module.exports.gitPullCmd =function(defRepo) {
+module.exports.gitPullCmd = function(defRepo) {
     var obj = JSON.parse(fs.readFileSync(configfile));
-    const data = `cd ${obj.repos[defRepo].repo} && git pull https://${obj.gituser}:${obj.accesstoke}@github.com/${obj.repos[defRepo].gitowner}/${obj.repos[defRepo].repo} ${obj.repos[defRepo].gitbranch}`
-    return data
+    const data = `cd /root${obj.repos[defRepo].repo} && git pull https://${obj.gituser}:${obj.accesstoke}@github.com/${obj.repos[defRepo].gitowner}/${obj.repos[defRepo].repo} ${obj.repos[defRepo].gitbranch}`
+
+    const cmd = `echo "${data}" > /mypipe`
+    return cmd
 }
