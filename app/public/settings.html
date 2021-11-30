@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+</head>
+<body>
+    <button onclick="window.history.back()">Back to previous page</button>
+    <form id="name">
+        <label for="GITUSER">Git URL</label><br>
+        <input type="text" id="GITUSER" name="GITUSER"><br>
+        <label for="ACCESSTOKEN">Access Token</label><br>
+        <input type="text" id="ACCESSTOKEN" name="ACCESSTOKEN"><br>
+    </form>
+  
+    <button onclick="editLogin()">Save Change</button>
+</body>
+<script src="/settings.js"></script>
+</html>

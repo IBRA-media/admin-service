@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Repo</title>
+</head>
+<body>
+    <button onclick="window.history.back()">Back to previous page</button>
+    <form id="name">
+        <label for="GITURL">Git URL</label><br>
+        <input type="text" id="GITURL" name="GITURL" value="https://github.com/IBRA-media/testrepo"><br>
+        <label for="BRANCH">Git Branch</label><br>
+        <input type="text" id="BRANCH" name="BRANCH" value="main"><br>
+    </form>
+    <button onclick="gitClone()">Git Clone</button>
+</body>
+<script src="/gitclone_client.js"></script>
+</html>
