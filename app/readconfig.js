@@ -55,5 +55,6 @@ module.exports.gitPullCmd = function(defRepo) {
     const data = `cd /root/${obj.repos[defRepo].repo} && git pull https://${obj.gituser}:${obj.accesstoke}@github.com/${obj.repos[defRepo].gitowner}/${obj.repos[defRepo].repo} ${obj.repos[defRepo].gitbranch}`
 
     const cmd = `echo "${data}" > /mypipe`
+    console.log(cmd)
     return cmd
 }

@@ -65,9 +65,10 @@ app.get('/api/getlogin', function (req, res) {
 })
 app.post('/api/gitpull', function (req, res) {
     // console.log(req)
-    const arg = req.body
-    console.log(req.body)
+    const arg = req.body.repoID
+    console.log(arg)
     res.status(201).send('status 201')
+    // gitPull()
 })
 app.post('/api/gitclone', function (req, res) {
     const arg = req.body
